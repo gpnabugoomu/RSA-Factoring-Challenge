@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+
+import sys
+
+def factorize(n):
+    for i in range(2, n):
+        if n % i == 0:
+            return i, n // i
+    return None, None
+
+def main(filename):
+    with open(filename, 'r') as file:
+        for line in file:
+            n = int(line.strip())
+            p, q = factorize(n)
+            if p is not None and q is not None:
+                print(f"{n}={p}*{q}")
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: factors <file>")
+        sys.exit(1)
+    
+    filename = sys.argv[1]
+    try:
+        main(filename)
+    except FileNotFoundError:
+        print(f"File '{filename}' not found.")
+        sys.exit(1)
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        sys.exit(1)
