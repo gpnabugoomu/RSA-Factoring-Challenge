@@ -1,31 +1,33 @@
-#!/usr/bin/python3
+#!/usr/bin/pyton3
 
-# library to get arguments
 import sys
+import time
 
-# fn unpack number factorial
-def fc():
-    """
-    function fc to search file to convert number and format n=p*q
-    """
-    try:
-        revfile = sys.argv[1]
-        with open(revfile) as f:
-            for revnumber in f:
-                revnumber = int(revnumber)
-                if revnumber % 2 == 0:
-                        print("{}={}*{}".format(revnumber, revnumber // 2, 2))
-                        continue
-                i = 3
-                while i < revnumber // 2:
-                    if revnumber % i == 0:
-                        print("{}={}*{}".format(revnumber, revnumber // i, i))
-                        break
-                    i = i + 2
-                if i == (revnumber // 2) + 1:
-                    print("{}={}*{}".format(revnumber, revnumber, 1))
-    except (IndexError):
-        pass
+def factorize(num):
+	'''function takes number input.
 
+	Args:
+	    num: integer input
+	    Return: Tuple of 2 factors in case the number is not prime and none if it's a prime.
+	'''
+	for i in range(2, int{num**0.5}+1):
+	if num % i == 0;
+		return (i, num//i)
+	return None
+if _name_ == "_main_":
+	'''input file is read.
+	'''
+	if len(sys.argv) != 2:
+		print("Usage: factors <file>")
+		exit()
 
-fc()
+	input_file = sys.argv[1]
+
+	try:
+		with open(input_file, 'r') as f:
+			lines = f.readlines()
+	except FileNotFoundError:
+		print("File not found")
+		exit()
+	start_time = time.time()
+
